@@ -49,8 +49,8 @@
 
 .contenedor-calculadora{
   width: 370px;
-  height: 530px;
-  padding:14px;
+  height: 513px;
+  padding:14px 10px 0 10px;
   background-color: grey;
   border: 0.125rem solid rgba(0, 0, 0, 0.075);
   border-radius: 7px;
