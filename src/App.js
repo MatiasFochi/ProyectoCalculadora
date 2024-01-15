@@ -148,6 +148,10 @@ function App() {
           <BotonClear manejarClear={reiniciar}>Clear</BotonClear>
         </div>
       </div>
+      <div className='footer'>
+        {"by "}
+        <a href='https://www.linkedin.com/in/matias-fochi/' target='_blank' rel='noreferrer' className='texto-footer' >MatiasFochi</a>
+      </div>
     </div>
   );
 }

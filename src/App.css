@@ -49,8 +49,8 @@
 
 .contenedor-calculadora{
   width: 370px;
-  height: 570px;
-  padding: 14px;
+  height: 530px;
+  padding:14px;
   background-color: grey;
   border: 0.125rem solid rgba(0, 0, 0, 0.075);
   border-radius: 7px;
@@ -62,4 +62,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100vw;
+  height: 40px;
+  color: white;
+  background-color: #310053;
+  position: absolute;
+  bottom: 0;
+  left: 0
+}
+
+.footer .texto-footer{
+  padding-left: 5px;
+  color: white;
+  text-decoration: none;
 }
