@@ -1,16 +1,17 @@
 import './App.css';
-import freeCodeCampLogo from './Imagenes/freecodecamp-logo.png';
 import Boton from './Componentes/Boton.js';
 import Pantalla from './Componentes/Pantalla.js'
 import BotonClear from './Componentes/BotonClear.js';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { evaluate } from 'mathjs';
+import LogoMF from './Imagenes/LogoPersonal2.png';
 
 function App() {
 
   const [input,setInput] = useState('');
   const ultimoIngresado = useRef('');
   const [hayNumeros,setHayNumeros] = useState(false);
+  const [modoClaro, setModoClaro] = useState(true);
 
   const agregarNumero = useCallback((val) => {
     if(!hayNumeros){
@@ -96,15 +97,27 @@ function App() {
     };
   }, [agregarNumero, agregarOperador, calcularResultado]);
 
+  const cambiarModo = () => {
+    (modoClaro) ? setModoClaro(false) : setModoClaro(true);
+  };
 
   return (
-    <div className="App">
-      <div className='freecodecamp-logo-contenedor'>
-        <img
-          src = {freeCodeCampLogo}
-          className='freecodecamp-logo'
-          alt = 'Logo de freeCodeCamp' />
-      </div>
+    <div className={(modoClaro) ? "App" : "App darkMode"}>
+      <nav className="navbar contenedor-barra">
+        <div className="container-fluid">
+          <div style={{width: 110 +"px"}}>
+            <a className='Contenedor-logo' href='https://www.linkedin.com/in/matias-fochi/' target='_blank' rel='noreferrer' >
+              <img className='logo' alt='Logo MF' src={LogoMF} />
+            </a>
+          </div>
+          <div style={{width: 110 +"px"}}>
+            <a href='nonrefferer' className="navbar-brand text-decoration-underline" disabled>Calculadora</a>
+          </div>
+          <div style={{width: 110 +"px"}}>
+            <button className="btn btn-outline-custom" type="submit" onClick={cambiarModo}>{(modoClaro) ? "Modo Claro" : "Modo Noche"}</button>
+          </div>
+        </div>
+      </nav>
       <div className='contenedor-calculadora'>
         <Pantalla input={input}/>
         <div className='fila'>
