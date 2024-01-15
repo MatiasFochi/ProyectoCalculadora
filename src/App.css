@@ -73,7 +73,7 @@
   height: 40px;
   color: white;
   background-color: #310053;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0
 }

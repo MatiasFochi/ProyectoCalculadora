@@ -111,10 +111,10 @@ function App() {
             </a>
           </div>
           <div style={{width: 110 +"px"}}>
-            <a href='nonrefferer' className="navbar-brand text-decoration-underline" disabled>Calculadora</a>
+            <a href='nonrefferer' className="navbar-brand" disabled>Calculadora</a>
           </div>
           <div style={{width: 110 +"px"}}>
-            <button className="btn btn-outline-custom" type="submit" onClick={cambiarModo}>{(modoClaro) ? "Modo Claro" : "Modo Noche"}</button>
+            <button className="btn btn-outline-custom" type="submit" onClick={cambiarModo}>{(modoClaro) ? "Modo Noche" : "Modo Claro"}</button>
           </div>
         </div>
       </nav>
