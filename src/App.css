@@ -37,13 +37,15 @@
 }
 
 .btn-outline-custom{
-  font-size: 0.9rem;
-  border-color: black;
+  font-size: 0.8rem;
+  border-color: whitesmoke;
+  background-color: #430e69 ;
+  color:whitesmoke;
 }
 
 .btn-outline-custom:hover{
   border-color: whitesmoke;
-  background-color: #5d1292 ;
+  background-color: #310053 ;
   color:whitesmoke;
 }
 
@@ -55,6 +57,10 @@
   border: 0.125rem solid rgba(0, 0, 0, 0.075);
   border-radius: 7px;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .fila{
