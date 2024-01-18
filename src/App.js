@@ -52,12 +52,12 @@ function App() {
     }
   },[input]);
 
-  const borrar = () => {
+  const borrar = useCallback(() => {
     if(input){
       setInput(input.slice(0, -1));
       ultimoIngresado.current = input.slice(-1);
     }
-   };
+   },[input]);
 
   const reiniciar = () => {
     setInput('');
@@ -105,7 +105,7 @@ function App() {
     return () => {
       window.removeEventListener('keydown', manejarTecla);
     };
-  }, [agregarNumero, agregarOperador, calcularResultado]);
+  }, [agregarNumero, agregarOperador, borrar, calcularResultado]);
 
   const cambiarModo = () => {
     (modoClaro) ? setModoClaro(false) : setModoClaro(true);
