@@ -48,9 +48,16 @@ function App() {
       }
     }
     else{
-      alert('El cálculo no puede finalizar con un operador o punto.');
+      alert('La expresión ingresada no es válida.');
     }
   },[input]);
+
+  const borrar = () => {
+    if(input){
+      setInput(input.slice(0, -1));
+      ultimoIngresado.current = input.slice(-1);
+    }
+   };
 
   const reiniciar = () => {
     setInput('');
@@ -82,6 +89,9 @@ function App() {
         case '=':
         case 'Enter':
           calcularResultado();
+          break;
+        case 'Backspace':
+          borrar();
           break;
         default:
           break;
@@ -121,6 +131,12 @@ function App() {
       <div className='contenedor-calculadora'>
         <Pantalla input={input}/>
         <div className='fila'>
+          <BotonClear manejarClear={reiniciar}>Clear</BotonClear>
+          <button className='btn btn-borrar' onClick={borrar} >
+            <i className='bi bi-backspace-fill'></i>
+          </button>
+        </div>        
+        <div className='fila'>
           <Boton manejarClic = {agregarNumero}>1</Boton>
           <Boton manejarClic = {agregarNumero}>2</Boton>
           <Boton manejarClic = {agregarNumero}>3</Boton>
@@ -144,9 +160,6 @@ function App() {
           <Boton manejarClic = {agregarOperador}>.</Boton>
           <Boton manejarClic = {agregarOperador}>/</Boton>
         </div>
-        <div className='fila'>
-          <BotonClear manejarClear={reiniciar}>Clear</BotonClear>
-        </div>
       </div>
       <div className='footer'>
         {"by "}
@@ -157,96 +170,3 @@ function App() {
 }
 
 export default App;
-
-
-/*
-  const [input,setInput] = useState('');
-  let ultimoIngresado = '';
-  const [hayNumeros,setHayNumeros] = useState(false);
-
-  useEffect(() => {
-    const manejarTecla = (event) => {
-      switch(event.key) {
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-        case '7':
-        case '8':
-        case '9':
-        case '0':
-          agregarNumero(event.key);
-          break;
-        case '+':
-        case '-':
-        case '*':
-        case '/':
-        case '.':
-          agregarOperador(event.key);
-          break;
-        case '=':
-        case 'Enter':
-          calcularResultado();
-          break;
-        default:
-          break;
-      }
-    };
-
-    // Agrega el controlador de eventos cuando el componente se monta
-    window.addEventListener('keydown', manejarTecla);
-
-    // Limpia el controlador de eventos cuando el componente se desmonta
-    return () => {
-      window.removeEventListener('keydown', manejarTecla);
-    };
-  }, []);
-
-  const agregarNumero = useCallback( (val) => {
-    if(!hayNumeros){
-      setHayNumeros(true);
-    }
-    setInput(input + val);
-    ultimoIngresado = val;
-    }, [hayNumeros, input, ultimoIngresado]);
-  
-  const agregarOperador = useCallback((val) => {
-    if(input){
-      if(isNaN(input.slice(-1))){
-        let nuevoOperador = input.slice(0, -1);
-        setInput(nuevoOperador+val);
-      }
-      else{
-        setInput(input+val);
-      }
-    }
-    else{
-      setInput(input+val);
-    }
-    ultimoIngresado = val;
-  }, [input]);
-  
-  const calcularResultado = useCallback(() => {
-    if(input && !isNaN(input.slice(-1))){
-      try {
-        setInput(''+evaluate(input));
-        ultimoIngresado = '=';
-      } catch (error) {
-        alert('La expresión ingresada no es válida.');
-        setInput('');
-      }
-    }
-    else{
-      alert('El calculo no puede finalizar con un operador o punto.');
-    }
-  },[input, ultimoIngresado]);
-  
-
-  const reiniciar = () => {
-    setInput('');
-    setHayNumeros(false);
-  };
-
-*/
