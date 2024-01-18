@@ -4,7 +4,7 @@ import Pantalla from './Componentes/Pantalla.js'
 import BotonClear from './Componentes/BotonClear.js';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { evaluate } from 'mathjs';
-import LogoMF from './Imagenes/LogoPersonal2.png';
+import LogoMF from './Imagenes/LogoPersonal.png';
 
 function App() {
 
