@@ -132,15 +132,16 @@ function App() {
         <Pantalla input={input}/>
         <div className='fila'>
           <BotonClear manejarClear={reiniciar}>Clear</BotonClear>
-          <button className='btn btn-borrar' onClick={borrar} >
+          <div className='btn-borrar' onClick={borrar} >
             <i className='bi bi-backspace-fill'></i>
-          </button>
+          </div>
+          <Boton manejarClic = {agregarOperador}>/</Boton>  
         </div>        
         <div className='fila'>
-          <Boton manejarClic = {agregarNumero}>1</Boton>
-          <Boton manejarClic = {agregarNumero}>2</Boton>
-          <Boton manejarClic = {agregarNumero}>3</Boton>
-          <Boton manejarClic = {agregarOperador}>+</Boton>
+          <Boton manejarClic = {agregarNumero}>7</Boton>
+          <Boton manejarClic = {agregarNumero}>8</Boton>
+          <Boton manejarClic = {agregarNumero}>9</Boton>
+          <Boton manejarClic = {agregarOperador}>*</Boton>
         </div>
         <div className='fila'>
           <Boton manejarClic = {agregarNumero}>4</Boton>
@@ -149,16 +150,16 @@ function App() {
           <Boton manejarClic = {agregarOperador}>-</Boton>
         </div>
         <div className='fila'>
-          <Boton manejarClic = {agregarNumero}>7</Boton>
-          <Boton manejarClic = {agregarNumero}>8</Boton>
-          <Boton manejarClic = {agregarNumero}>9</Boton>
-          <Boton manejarClic = {agregarOperador}>*</Boton>
+          <Boton manejarClic = {agregarNumero}>1</Boton>
+          <Boton manejarClic = {agregarNumero}>2</Boton>
+          <Boton manejarClic = {agregarNumero}>3</Boton>
+          <Boton manejarClic = {agregarOperador}>+</Boton>
         </div>
         <div className='fila'>
-          <Boton manejarClic = {calcularResultado}>=</Boton>
           <Boton manejarClic = {agregarNumero}>0</Boton>
           <Boton manejarClic = {agregarOperador}>.</Boton>
-          <Boton manejarClic = {agregarOperador}>/</Boton>
+          <div className='operador-igual' onClick={calcularResultado}>=</div>
+          {/*<Boton manejarClic = {calcularResultado}>=</Boton> */}
         </div>
       </div>
       <div className='footer'>
